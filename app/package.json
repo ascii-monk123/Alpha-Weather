@@ -11,6 +11,7 @@
   "author": "Aahan Singh Charak",
   "license": "ISC",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2",
     "autoprefixer": "^9.7.2",
     "css-loader": "^3.2.0",
     "exports-loader": "^0.7.0",

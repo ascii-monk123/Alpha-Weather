@@ -4,19 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <title>Alpha Weather</title>
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 pidgey">Hola mi amigos</div>
-        <div class="col-md-3 poom" style="background-color:green">
-          Bye Bye amigos
-        </div>
-        <div class="col-md-3">Bye Bye amigos</div>
-        <div class="col-md-3">Bye Bye amigos</div>
+    <header class="main__header">
+      <div class="header__icon">
+        <p><i class="fa fa-sun"></i></p>
       </div>
-    </div>
+      <div class="documentation__btn">
+        <button type="button" class="btn btn-primary btn-round " id="api__doc">
+          Api <i class="fas fa-arrow-up"> </i>
+        </button>
+      </div>
+
+      <div class="hero__img__box">
+        <h1 class="header__text">Alpha Weather</h1>
+        <p class="hero__img-text">
+          It gives you all the details about the current weather.
+        </p>
+      </div>
+    </header>
   </body>
 </html>

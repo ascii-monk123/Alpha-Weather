@@ -1,3 +1,82 @@
-.pidgey {
-  background-color: red;
+body {
+  padding: 30px;
+  font-family: 'Lato', sans-serif;
+  color: #777;
+}
+.main__header {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(126, 213, 111, 0.801),
+    rgba(40, 180, 133, 0.801)
+  );
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+.header__icon {
+  position: absolute;
+  top: 3%;
+  left: 3%;
+  font-size: 3rem;
+  color: #fff;
+}
+.documentation__btn {
+  position: absolute;
+  top: 5%;
+  right: 3%;
+}
+#api__doc {
+  color: #777;
+  text-transform: uppercase;
+  background: #fff;
+  border: 2px solid #fff;
+  border-radius: 100px;
+  transition: all 0.2s;
+  outline: none;
+}
+#api__doc::after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+  background-color: #fff;
+}
+#api__doc:hover::after {
+  transform: scaleY(1.6) scaleX(1.4);
+  opacity: 0;
+}
+#api__doc:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+#api__doc:active {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.hero__img__box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+}
+.header__text {
+  font-weight: 300;
+  font-size: 2.7rem;
+  letter-spacing: 3px;
+  word-spacing: 2px;
+}
+.hero__img-text {
+  font-weight: 300;
+  font-size: 1rem;
+  margin-top: 25px;
 }
