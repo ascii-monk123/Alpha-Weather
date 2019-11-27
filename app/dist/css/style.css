@@ -80,3 +80,90 @@ body {
   font-size: 1rem;
   margin-top: 25px;
 }
+
+/*------------The weather display section-----------------*/
+.weather__display__section {
+  margin-top: 50px;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+}
+.weather__section-header {
+  font-weight: 300;
+  letter-spacing: 3px;
+  font-size: 2.5rem;
+  color: #76d195;
+}
+.weather__section-header::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: #76d195;
+  width: 75px;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.city__search__box {
+  margin-top: 80px;
+  width: 100%;
+}
+.main__form {
+  width: 40%;
+  margin: auto;
+  border-right: 0px;
+}
+.icon__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-left: none;
+}
+#search__query__field {
+  border-right: none;
+  outline: none;
+}
+#search__query__field:focus {
+  box-shadow: none;
+  border: 1px solid #ced4da;
+  border-right: none;
+}
+#search__query__field::placeholder {
+  color: #76d195;
+}
+.submit__btn button.query__fetch__btn {
+  margin-top: 20px;
+  border-radius: 1000px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #76d195;
+  border: 1px solid #76d195;
+  transition: all 0.4s;
+  position: relative;
+}
+.submit__btn button.query__fetch__btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+.submit__btn button.query__fetch__btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.submit__btn button.query__fetch__btn::after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+  background-color: #76d195;
+}
+.submit__btn button.query__fetch__btn:hover::after {
+  transform: scaleY(1.6) scaleX(1.4);
+  opacity: 0;
+}
