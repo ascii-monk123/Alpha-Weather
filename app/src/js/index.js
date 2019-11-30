@@ -1,6 +1,7 @@
 import 'bootstrap';
 import '../scss/app.scss';
 import { getWeatherData, getDates } from './modals/weatherFetch';
+import { DomEle } from './views/searchView';
 
 var $ = require('jquery');
 import '@fortawesome/fontawesome-free/js/fontawesome';
@@ -29,7 +30,23 @@ $('.hero__img__box').fadeIn(2000);
   }
 };
 */
+
 const date1 = getDates();
-document.querySelector('.query__fetch__btn').addEventListener('click', () => {
-  getWeatherData('', date1);
+//Click event listener
+DomEle.fetchBtn.addEventListener('click', () => {
+  getQuery();
 });
+//Enter event listener
+DomEle.form.addEventListener('submit', e => {
+  e.preventDefault();
+  getQuery();
+});
+
+const getQuery = () => {
+  const query = DomEle.inputSec.value;
+  if (query !== '' && query !== null) {
+    DomEle.weatherSection.innerHTML = '';
+    DomEle.inputSec.value = '';
+    getWeatherData(query, date1);
+  } else alert('Please Enter Data Into Text Field');
+};

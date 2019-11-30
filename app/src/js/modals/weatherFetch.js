@@ -1,17 +1,86 @@
 import axios from 'axios';
+import { RenderData } from '../views/searchView';
+import { keys } from './keys';
+const DayData = () => {
+  const d = new Date().getDay();
+  const days = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday'
+  ];
+  return days.splice(d - 1, 5).reverse();
+};
 export const getWeatherData = async (query, curD) => {
   try {
     const data = await axios(
-      'https:\\api.openweathermap.org/data/2.5/forecast?q=London,us&APPID=600409249d829db023a38425bd27549b'
+      `https:\\api.openweathermap.org/data/2.5/forecast?q=${query}&APPID=${keys}`
     );
     let weatherArr = data.data.list;
     //dt_txt
     // 03:00:00
     if (weatherArr) {
+      //Divide the weather data
       let filterArr = weatherArr.filter(ele => ele.dt_txt.includes(curD));
-      console.log(filterArr);
+      const weatherTypes = [
+        'Thunderstorm',
+        'Drizzle',
+        'Rain',
+        'Snow',
+        'Atmosphere',
+        'Clear',
+        'Clouds'
+      ];
+      const colors = [
+        '#9b59b6',
+        '#3498db',
+        '#2980b9',
+        '#bdc3c7',
+        '#1abc9c',
+        '#f1c40f',
+        '#95a5a6'
+      ];
+      const fonts = [
+        'poo-storm',
+        'cloud-showers-heavy',
+        'cloud-rain',
+        'snowflake',
+        'globe-europe',
+        'sun',
+        'cloud'
+      ];
+      query = query.split('');
+      query[0] = query[0].toUpperCase();
+      query = query.join('');
+      let days = DayData();
+      filterArr.forEach((ele, i) => {
+        if (ele) {
+          let ind = weatherTypes.indexOf(ele.weather[0].main);
+          RenderData(
+            ele.main.temp_max - 273.15,
+            ele.main.temp_min - 273.15,
+            ele.weather[0].description,
+            days[i],
+            query,
+            colors[ind],
+            fonts[ind]
+          );
+        }
+      });
+      //Display the weather to the UI
     }
   } catch (err) {
+    alert('Sorry Your Request Cannot Be Processed Error 404!');
     console.log(err);
   }
 };
