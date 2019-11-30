@@ -32,6 +32,7 @@ export const getWeatherData = async (query, curD) => {
     if (weatherArr) {
       //Divide the weather data
       let filterArr = weatherArr.filter(ele => ele.dt_txt.includes(curD));
+      console.log(filterArr);
       const weatherTypes = [
         'Thunderstorm',
         'Drizzle',
@@ -63,7 +64,7 @@ export const getWeatherData = async (query, curD) => {
       query[0] = query[0].toUpperCase();
       query = query.join('');
       let days = DayData();
-      filterArr.forEach((ele, i) => {
+      filterArr.reverse().forEach((ele, i) => {
         if (ele) {
           let ind = weatherTypes.indexOf(ele.weather[0].main);
           RenderData(
@@ -87,6 +88,13 @@ export const getWeatherData = async (query, curD) => {
 export const getDates = () => {
   const d = new Date();
   let hour = d.getHours();
-  if (hour % 3 === 0) return `${hour}:00:00`;
-  else return `03:00:00`;
+  if (hour % 3 === 0) {
+    return hour <= 9 ? `0${hour}:00:00` : `${hour}:00:00`;
+  } else {
+    while (hour % 3 !== 0) {
+      hour--;
+    }
+
+    return hour <= 9 ? `0${hour}:00:00` : `${hour}:00:00`;
+  }
 };
