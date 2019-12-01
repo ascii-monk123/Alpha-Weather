@@ -3,7 +3,9 @@ import { RenderData } from '../views/searchView';
 import { keys } from './keys';
 const DayData = () => {
   const d = new Date().getDay();
+  console.log(d);
   const days = [
+    'Sunday',
     'Monday',
     'Tuesday',
     'Wednesday',
@@ -16,10 +18,9 @@ const DayData = () => {
     'Wednesday',
     'Thursday',
     'Friday',
-    'Saturday',
-    'Sunday'
+    'Saturday'
   ];
-  return days.splice(d - 1, 5).reverse();
+  return days.splice(d, 5).reverse();
 };
 export const getWeatherData = async (query, curD) => {
   try {
